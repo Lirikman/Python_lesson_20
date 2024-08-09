@@ -14,7 +14,7 @@ class ActiveManager(models.Manager):
 class IsActiveMixin(models.Model):
     objects = models.Manager()
     active_objects = ActiveManager()
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False, verbose_name='Опубликовано')
 
     class Meta():
         abstract = True
@@ -34,7 +34,7 @@ class Problem(IsActiveMixin, models.Model):
 class Order(IsActiveMixin, models.Model):
     client = models.CharField('Клиент', max_length=40)
     phone = models.CharField('Номер телефона', max_length=12)
-    text = models.ForeignKey(Problem, on_delete=models.DO_NOTHING)
+    problem = models.ForeignKey(Problem, on_delete=models.DO_NOTHING, verbose_name='Неполадка')
     date = models.DateTimeField('Дата заказа', default=datetime.now)
 
     def __str__(self):
