@@ -1,8 +1,8 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
-from .models import Problem, Article, Order
+from .models import Problem, Article, Order, Clients
 from .permission import IsOwnerOrReadOnly, IsAdminOrReadOnly
-from .serializers import ArticleSerializer, ProblemSerializer, OrdersSerializer
+from .serializers import ArticleSerializer, ProblemSerializer, OrdersSerializer, ClientsSerializer
 
 
 class ArticleApiView(viewsets.ModelViewSet):
@@ -24,7 +24,7 @@ class ArticleApiView(viewsets.ModelViewSet):
 class ProblemApiView(viewsets.ModelViewSet):
     queryset = Problem.objects.all()
     serializer_class = ProblemSerializer
-    permission_classes = (IsAdminUser,)
+    permission_classes = (IsAdminOrReadOnly,)
 
 
 class OrdersApiView(viewsets.ModelViewSet):
@@ -32,3 +32,8 @@ class OrdersApiView(viewsets.ModelViewSet):
     serializer_class = OrdersSerializer
     permission_classes = (IsAdminUser,)
 
+
+class ClientsApiView(viewsets.ModelViewSet):
+    queryset = Clients.objects.all()
+    serializer_class = ClientsSerializer
+    permission_classes = (IsAdminUser,)

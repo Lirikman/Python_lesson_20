@@ -1,12 +1,13 @@
 from django.urls import path, include, re_path
 from . import views, views_api
 from rest_framework import routers
-from .views_api import ArticleApiView, ProblemApiView, OrdersApiView
+from .views_api import ArticleApiView, ProblemApiView, OrdersApiView, ClientsApiView
 
 router = routers.DefaultRouter()
 router.register('article', ArticleApiView)
 router.register('problem', ProblemApiView)
 router.register('order', OrdersApiView)
+router.register('clients', ClientsApiView)
 
 urlpatterns = [
     path('', views.index, name='home'),

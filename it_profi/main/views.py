@@ -37,7 +37,7 @@ def create(request):
 
 
 def orders(request):
-    order = Order.active_objects.select_related('problem').order_by('id')
+    order = Order.active_objects.select_related('problem')
     paginator = Paginator(order, 5)
     page = request.GET.get('page')
     try:
@@ -56,7 +56,7 @@ class ArticleListView(ListView):
     paginate_by = 3
 
     def get_queryset(self):
-        return Article.active_objects.select_related('user')
+        return Article.active_objects.select_related('user').order_by('-id')
 
 
 class ArticleDetailView(DetailView):

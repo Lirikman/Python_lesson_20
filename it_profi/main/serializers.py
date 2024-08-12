@@ -23,3 +23,9 @@ class OrdersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('id', 'client', 'phone', 'problem')
+
+
+class ClientsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = '__all__'

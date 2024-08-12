@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/it_profi/env/Lib/site-packages/django/contrib/admin/static/admin/css/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/it_profi/env/Lib/site-packages/django/contrib/admin/static/admin/js/vendor" />
+    </content>
     <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
