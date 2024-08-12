@@ -8,5 +8,3 @@ evn/
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-node_modules
-vendor
